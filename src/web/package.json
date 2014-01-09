@@ -1,0 +1,15 @@
+{
+  "name": "ember.ituni",
+  "version": "0.0.1",
+  "description": "Example of using ember",
+  "main": "js\\app.js",
+  "author": "Luiz Scheidegger",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-ember-handlebars": "~0.7.0",
+    "grunt-handlebars": "0.0.6",
+    "grunt-concat": "~0.1.6",
+    "grunt-contrib-concat": "~0.3.0"
+  }
+}

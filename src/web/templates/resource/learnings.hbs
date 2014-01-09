@@ -1,0 +1,26 @@
+<h2>Learnings</h2>
+<ol>
+    {{#each}}
+        <li>{{Text}} <button {{action 'edit'}}> edit</button></li>
+    {{/each}}
+</ol>
+
+{{#if editing}}
+    <label for="text">Learning</label>
+    {{textarea value=Text cols="80" name="Text" rows="6"}}
+    <br>
+    <label for="tweet">Tweet</label>
+    {{input type="checkbox" name="Tweet" value="Tweet"}}
+    <label for="blog">Blog</label>
+    {{input type="checkbox" name="Blog" value="Blog"}}
+    <label for="todo">To do</label>
+    {{input type="checkbox" name="ToDo" value="ToDo"}}
+    <br>
+    <button {{action 'doneInserting'}}>Done</button>
+{{else}}
+    <button {{action 'insert'}}>Insert</button>
+{{/if}}
+
+{{#each item in Resources}}
+    {{learn-resource model=item}}
+{{/each}}

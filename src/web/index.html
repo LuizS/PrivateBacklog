@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ember Starter Kit</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+
+<div class="container">
+
+    <script type="text/x-handlebars">
+        <h1>Learning backlog</h1>
+        {{outlet}}
+    </script>
+
+</div>
+
+<script type="text/x-handlebars" id="index">
+    <div class="row">
+        {{side-bar model=model}}
+    </div>
+</script>
+
+<script type="text/x-handlebars" id="list">
+    <div class="row">
+        {{side-bar model=model}}
+        <div class="col-md-9" role="main">
+            {{outlet}}
+        </div>
+    </div>
+</script>
+
+<script src="js/libs/jquery-1.10.2.js"></script>
+<script src="js/libs/handlebars-1.1.2.js"></script>
+<script src="js/libs/ember-1.2.0.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src="js/libs/moment.min.js"></script>
+<script src="js/compiled-app.js"></script>
+
+</body>
+</html>

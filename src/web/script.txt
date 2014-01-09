@@ -1,0 +1,79 @@
+EMBER.JS
+	PRE-REQUISITES
+	- install Ember plugin for Chrome
+	Nice to have
+	- download and unzip starter kit: http://emberjs.com/
+	
+
+Ember.instrumentation
+-- AOP, event aggregator
+-- Location, translation
+-- Platform
+	
+Ember.String
+-- fmt
+-- (de)camelize , dasherize, huminize ...
+-- htmlSafe
+
+App = Ember.Application.create();
+
+App.Router.map(function() {
+    this.resource('index', { 'path': '/' });
+    this.resource('list', { path: '/list/:themeId' }, function(){
+        this.resource('resource', { path: '/resource/:resource'});
+    });
+
+});
+
+Ember.Route.dataProxy = function(endPoint, params){
+
+        return $.get("http://privatebacklogservice.autoscout24.com/%@".fmt(endPoint), params)
+            .done(function (data) {
+                return data;
+            })
+            .fail(function () {
+                alert("error");
+            }
+        );
+    };
+
+App.IndexRoute = Ember.Route.extend({
+  model: function() {
+    return $.get("http://privatebacklogservice.autoscout24.com/Themes");
+  }
+});
+
+App.ListRoute = Ember.Route.extend({
+    model: function(params){Ember.Route.dataProxy("List", params)}
+});
+
+App.ResourceRoute = Ember.Route.extend({
+    model: function(params){Ember.Route.dataProxy("Resource", params)}
+});
+
+
+Ember.Handlebars.helper('format-date', function(date) {
+    return moment(date).fromNow();
+});
+	
+Ember Plugins
+-- Ember-State 
+-- Ember-Data
+-- Ember-Template
+	npm install -g grunt
+	npm install -g grunt-cli
+	npm-install grunt-handlebars --save-dev
+	npm-install grunt-concat --save-dev
+	npm-install grunt-ember-handlebars --save-dev
+	Grunt is a javascript task runner
+	
+Script:
+	- create an empty web project
+	- 
+	
+	
+	
+	
+	- install web tools extensions for Visual Studio
+	- install ember.js MVC4 SPA Template http://visualstudiogallery.msdn.microsoft.com/9078967b-525a-469b-bb1a-6dde5e34aabf
+		(you will probably need the visual studio update 4, I did...)
